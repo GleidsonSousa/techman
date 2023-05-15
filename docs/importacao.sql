@@ -26,7 +26,7 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-select * from perfil
-select * from usuario
-select * from equipamento
-select * from comentario
+select * from perfil;
+select * from usuario;
+select * from equipamento;
+select * from comentario;

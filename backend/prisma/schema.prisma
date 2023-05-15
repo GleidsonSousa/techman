@@ -14,6 +14,8 @@ model Perfil{
   id Int @id @default(autoincrement())
   perfil String 
   usuarios Usuario[]
+  comentarios Comentario[]
+
 }
 
 model Usuario {
@@ -27,7 +29,7 @@ model Usuario {
 model Equipamento{
   id Int @id @default(autoincrement())
   equipamento String
-  imagem String
+  imagem String?
   descricao String
   ativo Boolean
   data DateTime @default(now())
@@ -40,6 +42,7 @@ model Comentario{
   equipamento Int 
   perfil Int
   data DateTime @default(now())
-  id_equipamento  Equipamento       @relation(fields: [equipamento], references: [id])
+  id_equipamento  Equipamento       @relation(fields: [equipamento], references: [id], onDelete: Cascade)
+  perfis          Perfil       @relation(fields: [perfil], references: [id], onDelete: Cascade)
 
 }
