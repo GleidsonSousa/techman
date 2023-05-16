@@ -86,8 +86,7 @@
           X
         </p>
         <p style="font-size: 20px">
-          Atenção! Tem certeza que deseja excluir o equipamento? Essa ação não
-          poderá ser desfeita.
+         Você deseja excluir o equipamento de ID:  <span id="idEquipment"></span>  !?.
         </p>
         <button id="confirmaDelete" onclick="excluirEquipamento()">
           Excluir
@@ -132,7 +131,7 @@
               <span id="perfil">Administrador</span> -
               <span id="data">10/10/2020</span>
             </p>
-            <p class="comenbody">asdsadadasdasdasdasdasdsadasdad</p>
+            <p class="comenbody">AAAAAAA</p>
           </div>
         </div>
         <button id="addComent" onclick="abrirAdicionarComentario(this)">
@@ -155,24 +154,23 @@
 
   
 
-    <div class="equipamentos-modal model">
+    <form class="equipamentos-modal model " id="myForm">
       <div class="container">
-        <p style="font-size: 26px; font-weight: bold; color: #35797d">
-          Cadastro de equipamento
-        </p>
+        <h1 style="font-size: 26px; font-weight: bold; color: #35797d">Cadastro de equipamento</h1>
         <p class="close" onclick="document.querySelector('.equipamentos-modal').classList.add('model')">X</p>
-        <input type="text" placeholder="Nome" id="nomeEquipamentoCad" onkeyup="habilitarBotaoEq()">
-        <input type="url" placeholder="Endereco da imagem" id="endImage" onkeyup="habilitarBotaoEq()">
-        <textarea name="textEquipamento" id="textEquipamento" cols="30" rows="10" placeholder="Descrição" onkeyup="habilitarBotaoEq()"></textarea>
+        <label for="nomeEquipamentoCad">Nome</label>
+        <input type="text" id="nomeEquipamentoCad" onkeyup="habilitarBotaoEq()" required>
+        <label for="endImage">Endereço da imagem</label>
+        <input type="file" id="endImage"  required>
+        <label for="textEquipamento">Descrição</label>
+        <textarea id="textEquipamento" rows="10" placeholder="Descrição" onkeyup="habilitarBotaoEq()" required></textarea>
         <div class="check">
           <input type="checkbox" id="checkeq" checked value="true" onclick="checkeq(this.parentNode)">
-          <span>Ativo</span>
+          <label for="checkeq">Ativo</label>
         </div>
-        <button id="addEqui" onclick="adicionarEquipamento(this)" disabled="true">
-          Cadastrar
-        </button>
+        <button id="addEqui" onclick="adicionarEquipamento(this)" disabled>Cadastrar</button>
       </div>
-    </div>
+    </form>
   </body>
   <script src="./script.js"></script>
 </html>

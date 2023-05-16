@@ -32,6 +32,9 @@ var idDel = 0
 
 function abrirModalDelete(e) {
   idDel = e.id
+ 
+  document.querySelector('#idEquipment').innerHTML = idDel
+
   document.querySelector('.delComent-modal').classList.remove('model')
 }
 
@@ -68,7 +71,7 @@ function fecharModalComentario() {
 function excluirEquipamento() {
   const options = { method: 'DELETE' };
 
-  fetch('http://localhost:2550/equipamento/delete' + idDel, options)
+  fetch('http://localhost:2550/equipamento/delete/' + idDel, options)
     .then(response => response.json())
     .then(response => window.location.reload())
 }
@@ -145,67 +148,30 @@ function habilitarBotaoEq() {
 }
 
 function adicionarEquipamento() {
+  document.querySelector("#checkeq").value;
+  var boolean = true;
 
-  var ok = 1
-
-  const xhr = new XMLHttpRequest()
-  xhr.open('GET', document.querySelector("#endImage").value, true)
-  xhr.responseType = 'blob'
-
-  xhr.onload = function (e) {
-    switch (this.status) {
-      case 200:
-        const blob = this.response
-        const img = new Image()
-        img.onload = function () {
-          document.querySelector("#endImage").value = "Imagem carregado com sucesso"
-        };
-        img.onerror = function () {
-          ok = 2
-          document.querySelector("#endImage").value = "Erro ao carregar a imagem!"
-        };
-        img.src = URL.createObjectURL(blob);
-        break;
-      case 404:
-        ok = 2
-        document.querySelector("#endImage").value = "A imagem não foi encontrada."
-        break;
-      default:
-        ok = 2
-        document.querySelector("#endImage").value = "Ocorreu um erro durante o carregamento da imagem."
-    }
-  };
-
-  xhr.send();
-
-  if (ok === 1) {
-   document.querySelector("#checkeq").value
-
-   var boolean = true
-    
-    if (document.querySelector("#checkeq").value !== "true") {
-      boolean = false
-    }
-
-    const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        "equipamento": document.querySelector("#nomeEquipamentoCad").value,
-        "imagem": document.querySelector("#endImage").value,
-        "descricao": document.querySelector("#textEquipamento").value,
-        "ativo": boolean
-      })
-    };
-
-    fetch('http://localhost:3000/equipamentos/create', options)
-      .then(response => response.json())
-      .then(response => {
-        window.location.reload()
-      })
+  if (document.querySelector("#checkeq").value !== "true") {
+    boolean = false;
   }
 
+  var formData = new FormData();
+  formData.append("equipamento", document.querySelector("#nomeEquipamentoCad").value);
+  formData.append("imagem", document.querySelector("#endImage").files[0]);
+  formData.append("descricao", document.querySelector("#textEquipamento").value);
+  formData.append("ativo", boolean);
+
+  fetch('http://localhost:2550/equipamento/create', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(response => {
+      window.location.reload();
+    })
+    .catch(error => console.error('Erro:', error));
 }
+
 
 function checkeq(e) {
 
