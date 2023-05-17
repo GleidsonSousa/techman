@@ -28,7 +28,10 @@ Para executar a aplicação localmente, siga os passos abaixo:
   DATABASE_URL="mysql://root:@localhost:3306/techman"
   PORT=2550
 ```
-
+-  Ainda na pasta backend execute o comando para migrar o prisma:
+```
+    prisma migrate dev --name "techman01"
+```
 - Depois de seguir esses passos de um comando para que o prisma faça a migração do banco de dados no seu Computador:
 
 - Inicie a aplicação:
