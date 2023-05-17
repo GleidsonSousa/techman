@@ -20,7 +20,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 ```
  
 - De Start em um servidor local:
-  utilizamos XAMPP no nosso curso iniciando o Apache e  MySQL
+  - utilizamos XAMPP no nosso curso, start o Apache e MySQL.
 
 - Crie um arquivo .env no  backEnd e coloque  as seguintes informnações:
 ```
