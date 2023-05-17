@@ -6,7 +6,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 - Clone este repositório em sua máquina local.
   ```
-  git clone https://github.com/FineMustache/AgroTech.git
+  git clone https://github.com/GleidsonSousa/techman
   ```
 
 - Acesse a pasta backend:
