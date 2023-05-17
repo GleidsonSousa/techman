@@ -111,16 +111,17 @@ function cadastrarComentario(e) {
   fetch('http://localhost:2550/comentario/create', options)
     .then(response => response.json())
     .then(response => {
-
+        removemodelSucessComent()
+        setTimeout(() => {
+          window.location.reload()
+        }, 1800)
       if (response.count > 0) {
         document.querySelector(".ms-ok").classList.remove("model")
 
       } 
 
 
-      setTimeout(() => {
-        window.location.reload()
-      }, 1000)
+      
     })
     .catch(error => {
       console.error('Erro ao buscar dados:', error);
@@ -128,9 +129,9 @@ function cadastrarComentario(e) {
 
       document.querySelector(".ms-ko").classList.remove("model")
 
-      // setTimeout(() => {
-      //   window.location.reload()
-      // }, 1000)
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
     })
 }
 
@@ -167,9 +168,17 @@ function adicionarEquipamento() {
   })
     .then(response => response.json())
     .then(response => {
-      window.location.reload();
+      document.querySelector('.spanSucess').innerHTML = "Equipamento enviado com Sucesso!"
+      removemodelSucessComent()
+      setTimeout(() => {
+        window.location.reload()
+      }, 1800)
     })
     .catch(error => console.error('Erro:', error));
+}
+
+function removemodelSucessComent(){
+  document.querySelector('.modalSucess').classList.remove('model')
 }
 
 

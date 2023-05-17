@@ -271,3 +271,29 @@ main {
 #checkeq {
     background-color: #000;
 }
+
+.modalSucess{
+    margin-top: -51%;
+    position: fixed;
+    z-index: 1;
+    background-color: #0000003b;
+    width: 100%;
+    height: 969px;
+}
+
+.conteudoSucess{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.oppa{
+    display: flex;
+    gap: 10px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    padding: 50px;
+}
