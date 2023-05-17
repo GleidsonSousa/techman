@@ -173,14 +173,14 @@ function adicionarEquipamento() {
 }
 
 
-function checkeq(e) {
+function checkText(e) {
 
-  if (e.querySelector('input').value !== "true") {
-    e.querySelector('input').value = "true"
-    e.querySelector('span').innerHTML = "Ativo"
+  if (e.querySelector('#checkeq').value !== "true") {
+    e.querySelector('#checkeq').value = "true"
+    e.querySelector('label').innerHTML = "Ativo"
   } else {
-    e.querySelector('input').value = "false"
-    e.querySelector('span').innerHTML = "Desativado"
+    e.querySelector('#checkeq').value = "false"
+    e.querySelector('label').innerHTML = "Desativado"
   }
 
 }
