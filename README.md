@@ -5,9 +5,8 @@ Este repositório contém o código-fonte do desafio/projeto TechMan uma aplica�
 Para executar a aplicação localmente, siga os passos abaixo:
 
 - Clone este repositório em sua máquina local.
-
   ```
- https://github.com/GleidsonSousa/techman.git
+  git clone https://github.com/FineMustache/AgroTech.git
   ```
 
 - Acesse a pasta backend:
