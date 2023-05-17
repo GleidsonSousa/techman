@@ -1,5 +1,6 @@
 # TechMan
 Este repositório contém o código-fonte do desafio/projeto TechMan uma aplicação web que tem finalidade de preparar nossa turma para o saep
+e exercitar nossa produtividade.
 
 ## Instalação
 Para executar a aplicação localmente, siga os passos abaixo:
